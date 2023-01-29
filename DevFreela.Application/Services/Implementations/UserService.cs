@@ -21,27 +21,29 @@ namespace DevFreela.Application.Services.Implementations
 
         }
 
-        public int Create(CreateUserInputModel inputModel)
-        {
-            var user = new User(inputModel.FullName, inputModel.Email, inputModel.Birthdate);
+        //public int Create(CreateUserInputModel inputModel)
+        //{
+        //    var user = new User(inputModel.FullName, inputModel.Email, inputModel.Birthdate);
 
-            _dbContext.Users.Add(user);
+        //    _dbContext.Users.Add(user);
 
-            return user.Id;
-        }
+        //    _dbContext.SaveChanges();
 
-        public UserViewModel GetUser(int id)
-        {
-            var user = _dbContext.Users.SingleOrDefault(u => u.Id == id);
+        //    return user.Id;
+        //}
 
-            if (user == null)
-            {
-                return null;
-            }
+        //public UserViewModel GetUser(int id)
+        //{
+        //    var user = _dbContext.Users.SingleOrDefault(u => u.Id == id);
 
-            return new UserViewModel(user.FullName, user.Email);
+        //    if (user == null)
+        //    {
+        //        return null;
+        //    }
+
+        //    return new UserViewModel(user.FullName, user.Email);
 
 
-        }
+        //}
     }
 }

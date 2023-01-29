@@ -1,23 +1,28 @@
 using DevFreela.API.Models;
+using DevFreela.Application.Commands.CreateComment;
+using DevFreela.Application.Commands.CreateProject;
+using DevFreela.Application.Commands.UpdateProject;
 using DevFreela.Application.Services.Implementations;
 using DevFreela.Application.Services.Interfaces;
 using DevFreela.Infrastructure.Perisistence;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
+builder.Services.AddSwaggerGen();
+builder.Services.AddMediatR(typeof(CreateProjectCommand));
+
+var connectionString = builder.Configuration.GetConnectionString("DevFreelaCs");
+builder.Services.AddDbContext<DevFreelaDbContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<IProjectService, ProjectService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<DevFreelaDbContext>(options => options.UseSqlServer());
-builder.Services.AddScoped<IProjectService, ProjectService>();
-builder.Services.Configure<OpeningTimeOption>(builder.Configuration.GetSection("OpeningTime"));
-builder.Services.AddScoped<ExampleClass>(e => new ExampleClass { Name = "Initial Stage" });
-
-var connectionString = builder.Configuration.GetConnectionString("DevFreelaCs");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

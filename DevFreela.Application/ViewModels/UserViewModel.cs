@@ -16,5 +16,6 @@ namespace DevFreela.Application.ViewModels
 
         public string FullName { get; private set; }
         public string Email { get; private set; }
+
     }
 }
