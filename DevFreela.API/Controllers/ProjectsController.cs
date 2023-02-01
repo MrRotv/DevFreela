@@ -32,7 +32,7 @@ namespace DevFreela.API.Controllers
         {
             var getAllProjectsQuery = new GetAllProjectsQuery(query);
 
-            var projects = _mediator.Send(getAllProjectsQuery);
+            var projects = await _mediator.Send(getAllProjectsQuery);
 
             return Ok(projects);
         }
