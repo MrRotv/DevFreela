@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DevFreela.Application.Commands.CreateUser
 {
-    internal class CreateUserCommand : IRequest<int>
+    public class CreateUserCommand : IRequest<int>
     {
 
         public string FullName { get; set; }

@@ -4,9 +4,11 @@ using DevFreela.Application.Commands.CreateProject;
 using DevFreela.Application.Commands.UpdateProject;
 using DevFreela.Application.Services.Implementations;
 using DevFreela.Application.Services.Interfaces;
+using DevFreela.Application.Validators;
 using DevFreela.Core.Repositories;
 using DevFreela.Infrastructure.Perisistence;
 using DevFreela.Infrastructure.Persistence.Repositories;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -28,6 +30,7 @@ builder.Services.AddTransient<IUserRepository, UserRepository>();
 
 
 builder.Services.AddControllers();
+builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateUserCommandValidator>());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();
