@@ -1,3 +1,4 @@
+using DevFreela.API.Filters;
 using DevFreela.API.Models;
 using DevFreela.Application.Commands.CreateComment;
 using DevFreela.Application.Commands.CreateProject;
@@ -29,7 +30,7 @@ builder.Services.AddTransient<IUserRepository, UserRepository>();
 
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)));
 builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateUserCommandValidator>());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

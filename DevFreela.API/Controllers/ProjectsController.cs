@@ -56,16 +56,6 @@ namespace DevFreela.API.Controllers
 
         public async Task<IActionResult> Post([FromBody] CreateProjectCommand command)
         {
-            if (!ModelState.IsValid)
-            {
-                var messages = ModelState
-                                .SelectMany(ms => ms.Value.Errors)
-                                .Select(e => e.ErrorMessage)
-                                .ToList();
-
-                return BadRequest(messages);
-            }
-
             //var id = _projectService.Create(inputModel);
             var id = await _mediator.Send(command);
             // Cadastrar o projeto
@@ -77,11 +67,6 @@ namespace DevFreela.API.Controllers
 
         public async Task<IActionResult> Put(int id, [FromBody] UpdateProjectCommand command)
         {
-            if (command.Description.Length > 500)
-            {
-                return BadRequest();
-            }
-
             //_projectService.Update(inputModel);
             await _mediator.Send(command);
 

@@ -19,6 +19,12 @@ namespace DevFreela.Application.Validators
                 .MaximumLength(30)
                 .MinimumLength(2)
                 .WithMessage("O título não pode ter apenas um caractere e deve ter no máximo 30");
+            RuleFor(p => p.IdClient)
+                .GreaterThan(0)
+                .WithMessage("O projeto precisa ser associado a uma IdClient");
+            RuleFor(p => p.IdFreelancer)
+                .GreaterThan(0)
+                .WithMessage("O projeto precisa estar associado a uma IdFreelancer");
         }
     }
 }

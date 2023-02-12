@@ -30,7 +30,7 @@ namespace DevFreela.Application.Queries.GetProjectById
                 project.Description,
                 project.TotalCost,
                 project.StartedAt,
-                project.FinishedAt,
+                project.FinishAt,
                 project.Client.FullName,
                 project.Freelancer.FullName
                 );
