@@ -13,6 +13,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using DevFreela.Application.Queries.GetProjectById;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DevFreela.API.Controllers
 {
@@ -28,6 +29,7 @@ namespace DevFreela.API.Controllers
         }
         //api/projects?query=net core
         [HttpGet]
+        [Authorize(Roles = "client, freelancer")]
         public async Task<IActionResult> Get(string query)
         {
             var getAllProjectsQuery = new GetAllProjectsQuery(query);
@@ -39,6 +41,7 @@ namespace DevFreela.API.Controllers
 
         // api/projects/id
         [HttpGet("{id}")]
+        [Authorize(Roles = "client, freelancer")]
 
         public async Task<IActionResult> GetById(int id)
         {
@@ -53,6 +56,7 @@ namespace DevFreela.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "client")]
 
         public async Task<IActionResult> Post([FromBody] CreateProjectCommand command)
         {
@@ -64,6 +68,7 @@ namespace DevFreela.API.Controllers
         }
         // api/project/id
         [HttpPut("{id}")]
+        [Authorize(Roles = "client")]
 
         public async Task<IActionResult> Put(int id, [FromBody] UpdateProjectCommand command)
         {
@@ -77,6 +82,7 @@ namespace DevFreela.API.Controllers
 
         //api/project/id
         [HttpDelete("{id}")]
+        [Authorize(Roles = "client")]
 
         public async Task<IActionResult> Delete(int id)
         {
@@ -88,6 +94,7 @@ namespace DevFreela.API.Controllers
         }
 
         [HttpPost("{id}/comments")]
+        [Authorize(Roles = "client, freelancer")]
 
         public async Task<IActionResult> PostComment(int id, [FromBody] CreateCommentCommand command)
         {
@@ -99,6 +106,7 @@ namespace DevFreela.API.Controllers
         }
 
         [HttpPut("{id}/start")]
+        [Authorize(Roles = "client")]
 
         public async Task<IActionResult> Start(int id)
         {
@@ -110,6 +118,7 @@ namespace DevFreela.API.Controllers
         }
 
         [HttpPut("{id}/finish")]
+        [Authorize(Roles = "client")]
 
         public async Task<IActionResult> Finish(int id)
         {

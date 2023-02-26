@@ -9,7 +9,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevFreela.Core", "DevFreela
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevFreela.Infrastructure", "DevFreela.Infrastructure\DevFreela.Infrastructure.csproj", "{AC4CD13B-4533-4DF8-9F77-4FA56DB56AF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreela.Application", "DevFreela.Application\DevFreela.Application.csproj", "{95319523-8C8B-4801-9F08-B1E9B8A7EF22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevFreela.Application", "DevFreela.Application\DevFreela.Application.csproj", "{95319523-8C8B-4801-9F08-B1E9B8A7EF22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreela.UnitTests", "DevFreela.UnitTests\DevFreela.UnitTests.csproj", "{9783C7CC-F316-48F6-ACA1-C09A88D5A27C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{963A4036-69C4-4CFC-8844-5A91C1B4230C}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +40,10 @@ Global
 		{95319523-8C8B-4801-9F08-B1E9B8A7EF22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95319523-8C8B-4801-9F08-B1E9B8A7EF22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95319523-8C8B-4801-9F08-B1E9B8A7EF22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9783C7CC-F316-48F6-ACA1-C09A88D5A27C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9783C7CC-F316-48F6-ACA1-C09A88D5A27C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9783C7CC-F316-48F6-ACA1-C09A88D5A27C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9783C7CC-F316-48F6-ACA1-C09A88D5A27C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
